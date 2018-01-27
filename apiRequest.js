@@ -10,9 +10,9 @@ var Request = require("request");
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 
-P.getPokemonByName('pikachu') // with Promise
+P.getPokemonByName('corsola') // with Promise
 .then(function(response) {
-  console.log(response.name);
+  console.log(response);
 })
 .catch(function(error) {
   console.log('There was an ERROR: ', error);
@@ -40,10 +40,10 @@ P.getPokemonByName('pikachu') // with Promise
 //   console.log(response); // resource function accepts singles or arrays of URLs/paths
 // });
 
-P.getGenerationByName("generation-vi")
-    .then(function(response) {
-      console.log(response.types);
-    })
-    .catch(function(error) {
-      console.log('There was an ERROR: ', error);
-    });
+// P.getGenerationByName("generation-vi")
+//     .then(function(response) {
+//       console.log(response.types);
+//     })
+//     .catch(function(error) {
+//       console.log('There was an ERROR: ', error);
+//     });
