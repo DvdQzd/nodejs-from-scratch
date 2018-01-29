@@ -1,9 +1,40 @@
 <html>
     <head>
         <title>PokeAPI Test</title>
+        <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     </head>
     <body>
         Enter Pokemon Name: <input type="text" id="name" /><br>
-        <input type="button" onclick="getPokeData()" />
+        <input type="button" id="btn" value="check" onclick='window.getPokeData()'/>
+        <br>
+        <span id="q"></span>
     </body>
 </html>
+<script>
+
+window.getPokeData = function(){
+
+    var name = document.getElementById('name').value;
+
+    $.ajax({
+        type: 'POST',
+        url: "http://localhost:8080",
+        data: name,
+        datatype: 'json',
+        success: function (data) {
+            // alert("hi");
+            var ret = data.value;
+            console.log(ret);
+            $('#q').html(ret);
+        },
+        error: function (xhr, status, error) {
+            // alert("hii");
+        }
+    });
+}
+
+    
+</script>
